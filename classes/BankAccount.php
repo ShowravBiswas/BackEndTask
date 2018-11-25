@@ -33,7 +33,12 @@ class BankAccount implements IfaceBankAccount
     {
         // TODO: Implement withdraw() method.
 
-         $this->balance-=$amount->value();
+        if ($amount->value() > $this->balance){
+            throw new Exception("Withdrawl amount larger than balance");
+
+        }else {
+            $this->balance-=$amount->value();
+        }
 
     }
 }
